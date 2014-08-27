@@ -33,7 +33,12 @@ class RedsysController extends Controller
      */
     public function executeAction(Request $request)
     {
-        $formView = $this->get('redsys.manager')->processPayment();
+        $request = $this->getRequest();
+
+        $manager = $this->get('redsys.manager');
+        $manager->setLocale($request->getLocale());
+
+        $formView = $manager->processPayment();
 
         return $this->render('RedsysBundle:Redsys:process.html.twig',array(
             'redsys_form' => $formView,
