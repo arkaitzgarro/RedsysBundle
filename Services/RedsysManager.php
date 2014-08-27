@@ -53,6 +53,25 @@ class RedsysManager
      * Secret key
      */
     protected $secretKey;
+    
+    /**
+     * @var string
+     *
+     * Locale
+     */
+    protected $locale;
+    
+    /**
+     * Request locale
+     * 
+     * @param string $locale Locale
+     */
+    public function setLocale($locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
 
     /**
      * Construct method for redsys manager
@@ -118,6 +137,7 @@ class RedsysManager
 
         $formView = $this
             ->redsysFormTypeWrapper
+            ->setLocale($this->locale)
             ->buildForm();
 
         return $formView;
