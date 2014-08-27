@@ -95,14 +95,32 @@ class RedsysRoutesLoader implements LoaderInterface
         }
 
         $routes = new RouteCollection();
-        $routes->add($this->controllerExecuteRouteName, new Route($this->controllerExecuteRoute, array(
-            '_controller'   =>  'RedsysBundle:Redsys:execute',
-            array('_method' => 'GET'),
-        )));
-        $routes->add($this->controllerResultRouteName, new Route($this->controllerResultRoute, array(
-            '_controller'   =>  'RedsysBundle:Redsys:result',
-            array('_method' => 'POST'),
-        )));
+        
+        foreach ($this->controllerExecuteRoute as $locale => $route) {
+            $routes->add(
+                $this->controllerExecuteRouteName.'.'.$locale,
+                new Route(
+                    $route,
+                    array(
+                        '_controller'   =>  'RedsysBundle:Redsys:execute',
+                        array('_method' => 'GET'),
+                    )
+                )
+            );
+        }
+
+        foreach ($this->controllerResultRoute as $locale => $route) {
+            $routes->add(
+                $this->controllerResultRouteName.'.'.$locale,
+                new Route(
+                    $route,
+                    array(
+                        '_controller'   =>  'RedsysBundle:Redsys:result',
+                        array('_method' => 'GET'),
+                    )
+                )
+            );
+        }
 
         $this->loaded = true;
 
