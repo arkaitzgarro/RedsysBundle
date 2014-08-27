@@ -54,11 +54,11 @@ redsys:
 
     # Configuration for the route that Redsys will send the transaction result request to
     #
-    # By default, controller route is /checkout/payment/result
+    # By default, controller route is /checkout/payment/redsys/result
     controller_result_route:
-        es: /procesar/pago/resultado
-        en: /checkout/payment/result
-        fr: /acheter/paiment/resultat
+        es: /procesar/pago/redsys/resultado
+        en: /checkout/payment/redsys/result
+        fr: /acheter/paiment/redsys/resultat
 
 ```
 
