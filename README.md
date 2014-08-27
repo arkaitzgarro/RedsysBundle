@@ -21,7 +21,7 @@ redsys:
     # Configuration for payment success redirection
     #
     # Route defines which route will redirect if payment successes
-    # If order_append is true, Bundle will append card identifier into route
+    # If order_append is true, Bundle will append order identifier into route
     #    taking order_append_field value as parameter name and
     #    PaymentOrderWrapper->getOrderId() value
     payment_success:
@@ -32,13 +32,13 @@ redsys:
     # Configuration for payment fail redirection
     #
     # Route defines which route will redirect if payment fails
-    # If card_append is true, Bundle will append card identifier into route
-    #    taking card_append_field value as parameter name and
-    #    PaymentCardWrapper->getCardId() value
+    # If order_append is true, Bundle will append order identifier into route
+    #    taking order_append_field value as parameter name and
+    #    PaymentCardWrapper->getOrderId() value
     payment_fail:
         route: card_view
-        card_append: false
-        card_append_field: card_id
+        order_append: true
+        order_append_field: order_id
 
     # Configuration for Redsys form display route
     #
