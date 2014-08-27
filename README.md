@@ -1,9 +1,9 @@
 Redsys - Payment Suite
 =====
 
-Fork from PaymentSuite/RedsysBundle(https://github.com/PaymentSuite/RedsysBundle) to include localized routes.
+Fork from [PaymentSuite/RedsysBundle](https://github.com/PaymentSuite/RedsysBundle) to include localized routes.
 
-NOTICE: this fork has just been tested with BeSimpleI18nRoutingBundle(https://github.com/BeSimple/BeSimpleI18nRoutingBundle)
+NOTICE: this fork has just been tested with [BeSimpleI18nRoutingBundle](https://github.com/BeSimple/BeSimpleI18nRoutingBundle)
 
 Configuration
 -----
