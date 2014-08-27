@@ -42,13 +42,19 @@ redsys:
 
     # Configuration for Redsys form display route
     #
-    # By default, controller execute route is /payment/redsys/execute
-    controller_execute_route: /my/custom/execute/route
+    # By default, controller execute route is /checkout/payment/redsys
+    controller_execute_route:
+        es: /procesar/pago/redsys
+        en: /checkout/payment/redsys
+        fr: /acheter/paiment/redsys
 
     # Configuration for the route that Redsys will send the transaction result request to
     #
-    # By default, controller route is /payment/redsys/result
-    controller_result_route: /my/custom/result/route
+    # By default, controller route is /checkout/payment/result
+    controller_result_route:
+        es: /procesar/pago/resultado
+        en: /checkout/payment/result
+        fr: /acheter/paiment/resultat
 
 ```
 
@@ -71,7 +77,7 @@ Router
 
 RedsysBundle allows developer to specify the route of controller where redsys
 payment is processed as well as the route that will receive the transaction response.
-By default, this values are  `/payment/redsys/execute`and `/payment/redsys/result` but this values can be
+By default, this values are  `/checkout/payment/redsys` and `/checkout/payment/result` but this values can be
 changed in configuration file.
 Anyway, the bundle routes must be parsed by the framework, so these lines must
 be included into routing.yml file
