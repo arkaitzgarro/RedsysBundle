@@ -77,6 +77,13 @@ class RedsysFormTypeWrapper
      * Merchant url ko
      */
     protected $dsMerchantUrlKO;
+    
+     /**
+     * @var string
+     *
+     * Locale
+     */
+    protected $locale;
 
     /**
      * Formtype construct method
@@ -109,6 +116,18 @@ class RedsysFormTypeWrapper
         $this->Ds_Merchant_UrlOK        = $Ds_Merchant_UrlOK;
         $this->Ds_Merchant_UrlKO        = $Ds_Merchant_UrlKO;
     }
+    
+    /**
+     * Request locale
+     *
+     * @param string $locale Locale
+     */
+    public function setLocale($locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
 
     /**
      * Builds form given return, success and fail urls
@@ -139,7 +158,7 @@ class RedsysFormTypeWrapper
                                                         $Ds_Merchant_MerchantCode,
                                                         $Ds_Merchant_Currency,
                                                         $Ds_Merchant_TransactionType,
-                                                        $this->Ds_Merchant_MerchantURL,
+                                                        $this->Ds_Merchant_MerchantURL[$this->locale],
                                                         $this->secretKey);
 
         $Ds_Merchant_Terminal = $extraData['terminal'];
@@ -167,7 +186,7 @@ class RedsysFormTypeWrapper
                 'data' => $Ds_Merchant_Order,
             ))
             ->add('Ds_Merchant_MerchantURL', 'hidden', array(
-                'data' => $this->Ds_Merchant_MerchantURL,
+                'data' => $this->Ds_Merchant_MerchantURL[$this->locale],
             ))
             ->add('Ds_Merchant_UrlOK', 'hidden', array(
                 'data' => $this->Ds_Merchant_UrlOK,
