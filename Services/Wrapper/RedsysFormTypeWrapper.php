@@ -148,7 +148,7 @@ class RedsysFormTypeWrapper
             $Ds_Merchant_TransactionType = '0';
         }
 
-        $Ds_Merchant_Amount             = (integer) ($this->paymentBridge->getAmount() * 100);
+        $Ds_Merchant_Amount             = (integer) ($this->paymentBridge->getAmount()->getAmount() * 100);
         $Ds_Merchant_Order              = $this->formatOrderNumber($this->paymentBridge->getOrderNumber());
         $Ds_Merchant_MerchantCode       = $this->merchantCode;
         $Ds_Merchant_Currency           = $this->currencyTranslation($this->paymentBridge->getCurrency());
