@@ -25,7 +25,7 @@ redsys:
     #    taking order_append_field value as parameter name and
     #    PaymentOrderWrapper->getOrderId() value
     payment_success:
-        route: card_thanks
+        route: order_thanks
         order_append: true
         order_append_field: order_id
 
@@ -36,7 +36,7 @@ redsys:
     #    taking order_append_field value as parameter name and
     #    PaymentCardWrapper->getOrderId() value
     payment_fail:
-        route: card_view
+        route: order_view
         order_append: true
         order_append_field: order_id
 
